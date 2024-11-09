@@ -63,7 +63,7 @@ class Botaocontroller{
   }
 
 
-  void pegandoValores(String texto){
-    _texto = _texto+texto;
+  void pegandoValoresTexto(String texto){
+    this._texto = this._texto+texto;
   }
 }

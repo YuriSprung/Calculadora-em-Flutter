@@ -64,7 +64,7 @@ class TelaCalculadora extends StatelessWidget{
               mainAxisAlignment: MainAxisAlignment.spaceEvenly,
               children: [
                 ElevatedButton(onPressed: (){
-                  btC.pegandoValores('7');
+                  btC.pegandoValoresTexto('7');
                 }, style: ElevatedButton.styleFrom(padding: const EdgeInsets.only(top: 15, bottom: 15)), child: const Text('7', style: TextStyle(fontSize: 24.0)),
                 ),
                 ElevatedButton(onPressed: (){
