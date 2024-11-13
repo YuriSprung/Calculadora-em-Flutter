@@ -2,9 +2,15 @@ import 'package:calculadora/BotaoController.dart';
 import 'package:flutter/material.dart';
 
 // ignore: must_be_immutable
-class TelaCalculadora extends StatelessWidget{
+class TelaCalculadora extends StatefulWidget{
   TelaCalculadora({super.key});
-  Botaocontroller btC = new Botaocontroller();
+
+  @override
+  State<TelaCalculadora> createState() => _TelaCalculadoraState();
+}
+
+class _TelaCalculadoraState extends State<TelaCalculadora> {
+  Botaocontroller btC = Botaocontroller();
 
   @override
   Widget build(BuildContext context) {
@@ -24,7 +30,7 @@ class TelaCalculadora extends StatelessWidget{
             alignment: Alignment.centerRight,
             padding: const EdgeInsets.only(bottom: 20, right: 20),
             child: Text(
-              '${btC.textoResultado}',
+              btC.textoResultado ?? '',
               style: const TextStyle(fontSize: 20.0,
               color: Color.fromRGBO(128, 128, 128, 90)),
             ),
@@ -33,7 +39,7 @@ class TelaCalculadora extends StatelessWidget{
             alignment: Alignment.centerRight,
             padding: const EdgeInsets.only(right: 20),
             child: Text(
-              '${btC.texto}',
+              btC.texto ?? '0',
               style: const TextStyle(
                 fontSize: 48.0
               )), 
@@ -49,9 +55,11 @@ class TelaCalculadora extends StatelessWidget{
                   offset: const Offset(30, 0), // 30 pixels para a direita (x: 30, y: 0)
                   child: ElevatedButton(
                     onPressed: () {
-                      // Ação do botão
+                      setState(() {
+                        btC.cE();
+                  });
                     },
-                  style: ElevatedButton.styleFrom(padding: EdgeInsets.all(10)), child: const Text('CE', style: TextStyle(fontSize: 24),),
+                  style: ElevatedButton.styleFrom(padding: const EdgeInsets.all(10)), child: const Text('CE', style: TextStyle(fontSize: 24),),
                   )
                 ),
               ],
@@ -64,19 +72,27 @@ class TelaCalculadora extends StatelessWidget{
               mainAxisAlignment: MainAxisAlignment.spaceEvenly,
               children: [
                 ElevatedButton(onPressed: (){
-                  btC.pegandoValoresTexto('7');
+                  setState(() {
+                    btC.pegandoValoresTexto('7');
+                  });
                 }, style: ElevatedButton.styleFrom(padding: const EdgeInsets.only(top: 15, bottom: 15)), child: const Text('7', style: TextStyle(fontSize: 24.0)),
                 ),
                 ElevatedButton(onPressed: (){
-                  //ação do botao
+                  setState(() {
+                    btC.pegandoValoresTexto('8');
+                  });
                 }, style: ElevatedButton.styleFrom(padding: const EdgeInsets.only(top: 15, bottom: 15)), child: const Text('8', style: TextStyle(fontSize: 24.0)),
                 ),
                 ElevatedButton(onPressed: (){
-                  //ação do botao
+                  setState(() {
+                    btC.pegandoValoresTexto('9');
+                  });
                 }, style: ElevatedButton.styleFrom(padding: const EdgeInsets.only(top: 15, bottom: 15)), child: const Text('9', style: TextStyle(fontSize: 24.0)),
                 ),
                 ElevatedButton(onPressed: (){
-                  //ação do botao
+                  setState(() {
+                    btC.pegandoValoresTexto('/');
+                  });
                 }, style: ElevatedButton.styleFrom(padding: const EdgeInsets.only(top: 15, bottom: 15)), child: const Text('/', style: TextStyle(fontSize: 24.0)),
                 ),
               ],
@@ -89,19 +105,27 @@ class TelaCalculadora extends StatelessWidget{
               mainAxisAlignment: MainAxisAlignment.spaceEvenly,
               children: [
                 ElevatedButton(onPressed: (){
-                  //ação do botao
+                  setState(() {
+                    btC.pegandoValoresTexto('4');
+                  });
                 }, style: ElevatedButton.styleFrom(padding: const EdgeInsets.only(top: 15, bottom: 15)), child: const Text('4', style: TextStyle(fontSize: 24.0)),
                 ),
                 ElevatedButton(onPressed: (){
-                  //ação do botao
+                  setState(() {
+                    btC.pegandoValoresTexto('5');
+                  });
                 }, style: ElevatedButton.styleFrom(padding: const EdgeInsets.only(top: 15, bottom: 15)), child: const Text('5', style: TextStyle(fontSize: 24.0)),
                 ),
                 ElevatedButton(onPressed: (){
-                  //ação do botao
+                  setState(() {
+                    btC.pegandoValoresTexto('6');
+                  });
                 }, style: ElevatedButton.styleFrom(padding: const EdgeInsets.only(top: 15, bottom: 15)), child: const Text('6', style: TextStyle(fontSize: 24.0)),
                 ),
                 ElevatedButton(onPressed: (){
-                  //ação do botao
+                  setState(() {
+                    btC.pegandoValoresTexto('+');
+                  });
                 }, style: ElevatedButton.styleFrom(padding: const EdgeInsets.only(top: 15, bottom: 15)), child: const Text('+', style: TextStyle(fontSize: 24.0)),
                 ),
               ],
@@ -114,19 +138,27 @@ class TelaCalculadora extends StatelessWidget{
               mainAxisAlignment: MainAxisAlignment.spaceEvenly,
               children: [
                 ElevatedButton(onPressed: (){
-                  //ação do botao
+                  setState(() {
+                    btC.pegandoValoresTexto('1');
+                  });
                 }, style: ElevatedButton.styleFrom(padding: const EdgeInsets.only(top: 15, bottom: 15)), child: const Text('1', style: TextStyle(fontSize: 24.0)),
                 ),
                 ElevatedButton(onPressed: (){
-                  //ação do botao
+                  setState(() {
+                    btC.pegandoValoresTexto('2');
+                  });
                 }, style: ElevatedButton.styleFrom(padding: const EdgeInsets.only(top: 15, bottom: 15)), child: const Text('2', style: TextStyle(fontSize: 24.0)),
                 ),
                 ElevatedButton(onPressed: (){
-                  //ação do botao
+                  setState(() {
+                    btC.pegandoValoresTexto('3');
+                  });
                 }, style: ElevatedButton.styleFrom(padding: const EdgeInsets.only(top: 15, bottom: 15)), child: const Text('3', style: TextStyle(fontSize: 24.0)),
                 ),
                 ElevatedButton(onPressed: (){
-                  //ação do botao
+                  setState(() {
+                    btC.pegandoValoresTexto('-');
+                  });
                 }, style: ElevatedButton.styleFrom(padding: const EdgeInsets.only(top: 15, bottom: 15)), child: const Text('-', style: TextStyle(fontSize: 24.0)),
                 ),
               ],
@@ -139,19 +171,25 @@ class TelaCalculadora extends StatelessWidget{
               mainAxisAlignment: MainAxisAlignment.spaceEvenly,
               children: [
                 ElevatedButton(onPressed: (){
-                  //ação do botao
+                  setState(() {
+                    btC.pegandoValoresTexto(',');
+                  });
                 }, child: const Text(',', style: TextStyle(fontSize: 24.0)),
                 ),
                 ElevatedButton(onPressed: (){
-                  //ação do botao
+                  setState(() {
+                    btC.pegandoValoresTexto('0');
+                  });
                 }, style: ElevatedButton.styleFrom(padding: const EdgeInsets.only(top: 15, bottom: 15)), child: const Text('0', style: TextStyle(fontSize: 24.0)),
                 ),
                 ElevatedButton(onPressed: (){
-                  //ação do botao
+                  setState(() {
+                    btC.pegandoValoresTexto('x');
+                  });
                 }, style: ElevatedButton.styleFrom(padding: const EdgeInsets.only(top: 15, bottom: 15)), child: const Text('x', style: TextStyle(fontSize: 24.0)),
                 ),
                 ElevatedButton(onPressed: (){
-                  //ação do botao
+                  btC.fazendoConta();
                 }, style: ElevatedButton.styleFrom(padding: const EdgeInsets.only(top: 15, bottom: 15)), child: const Text('=', style: TextStyle(fontSize: 24.0)),
                 ),
               ],
